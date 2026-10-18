@@ -52,11 +52,14 @@ CREATE TABLE IF NOT EXISTS diagnostic_reports (
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS sensor_readings (
     reading_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    vehicle_id INTEGER NOT NULL,
     time_seconds INTEGER NOT NULL,
     temperature REAL,
     voltage REAL,
     speed REAL,
-    created_at TEXT DEFAULT CURRENT_TIMESTAMP
+    created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (vehicle_id)
+        REFERENCES vehicles(vehicle_id)
 )
 """)
 
