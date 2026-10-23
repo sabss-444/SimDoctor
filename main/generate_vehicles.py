@@ -1,5 +1,10 @@
 
 import random
+import os
+from pymongo import MongoClient
+from dotenv import load_dotenv
+from pathlib import Path
+
 
 # UK registration format: 2 letters, 2 digits, 3 letters
 LETTERS = "ABCDEFGHJKLMNOPRSTUVWXYZ"
@@ -47,7 +52,47 @@ def generate_vehicles(number=10):
     return vehicles
 
 if __name__ == "__main__":
-    cars = generate_vehicles(10)
+    env_path = Path(__file__).parent / "main" / ".env"
+    load_dotenv(env_path)
+    uri = os.getenv("MONGODB_URI")
 
-    for car in cars:
-        print(car)
+    if not uri:
+        raise ValueError("MONGODB_URI not found in .env")
+
+    client = MongoClient(uri, serverSelectionTimeoutMS=10000)
+    db = client["simdoctor"]
+    vehicles_collection = db["vehicles"]
+
+    try:
+        client.admin.command("ping")
+        print("Connected to MongoDB Atlas!")
+
+        cars = generate_vehicles(10)
+        inserted = 0
+
+        for car in cars:
+            result = vehicles_collection.update_one(
+                {"registration_number": car["registration_number"]},
+                {"$setOnInsert": car},
+                upsert=True
+            )
+
+            if result.upserted_id:
+                inserted += 1
+
+        print(f"Generated {len(cars)} cars.")
+        print(f"Added {inserted} new vehicles to Atlas.")
+
+        print("\nVehicles in MongoDB:")
+        for car in vehicles_collection.find(
+            {}, {"_id": 0}
+        ).sort("registration_number", 1):
+            print(car)
+
+    except Exception as e:
+        print("Error:", e)
+
+    finally:
+        client.close()
+
+
