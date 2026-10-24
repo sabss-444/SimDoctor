@@ -1,4 +1,8 @@
 
+"""
+simulate_sensors.py - generate simulated sensor readings for SimDoctor.
+"""
+
 import os
 import random
 from datetime import datetime, timezone
@@ -7,9 +11,33 @@ from pathlib import Path
 from dotenv import load_dotenv
 from pymongo import MongoClient
 
-# Load the MongoDB connection string from main/.env
+from fault_detector import detect_faults, describe, save_fault
+
+
 env_path = Path(__file__).parent / ".env"
 load_dotenv(env_path)
+
+FAULT_PROBABILITY = 0.25
+
+
+def inject_fault(reading):
+    """Inject one simulated sensor fault into a reading."""
+    fault_type = random.choice([
+        "overheat",
+        "low_voltage",
+        "low_oil",
+    ])
+
+    if fault_type == "overheat":
+        reading["temperature"] = round(random.uniform(106, 125), 2)
+
+    elif fault_type == "low_voltage":
+        reading["voltage"] = round(random.uniform(10.0, 11.9), 2)
+
+    else:
+        reading["oil_pressure"] = round(random.uniform(0.2, 0.9), 2)
+
+    return reading
 
 
 def simulate_sensor_readings():
@@ -28,15 +56,16 @@ def simulate_sensor_readings():
         db = client["simdoctor"]
         vehicles = db["vehicles"]
         readings = db["sensor_readings"]
+        fault_log = db["faults"]
 
-        # Find one vehicle in MongoDB Atlas
         vehicle = vehicles.find_one()
 
         if vehicle is None:
             print("No vehicle found. Run generate_vehicles.py first.")
             return
 
-        # Generate 10 simulated sensor readings
+        fault_count = 0
+
         for second in range(10):
             reading = {
                 "vehicle_id": vehicle["_id"],
@@ -50,14 +79,29 @@ def simulate_sensor_readings():
                 "oil_pressure": round(random.uniform(1.0, 5.0), 2),
             }
 
-            readings.insert_one(reading)
+            # Randomly introduce a fault in some readings.
+            if random.random() < FAULT_PROBABILITY:
+                inject_fault(reading)
 
-        print("10 sensor readings saved successfully to MongoDB Atlas!")
+            # Save the reading and obtain its MongoDB ID.
+            result = readings.insert_one(reading)
+            reading["_id"] = result.inserted_id
+
+            # Detect and save any faults found in this reading.
+            for fault in detect_faults(reading):
+                fault_count += 1
+                save_fault(fault_log, reading, fault)
+                print(f"t={second}s | {describe(fault)}")
+
+        print("\nSensor simulation completed successfully!")
+        print("Readings generated: 10")
         print(f"Vehicle: {vehicle['registration_number']}")
-        print("Collection: simdoctor.sensor_readings")
+        print("Readings collection: simdoctor.sensor_readings")
+        print(f"Faults detected in this run: {fault_count}")
+        print("Fault collection: simdoctor.faults")
 
     except Exception as error:
-        print("ERROR: Could not save sensor readings.")
+        print("ERROR: Could not complete the simulation.")
         print(type(error).__name__)
         print(error)
 
