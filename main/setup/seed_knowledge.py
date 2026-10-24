@@ -1,9 +1,10 @@
 
 import os
 from datetime import datetime, timezone
-
+from pathlib import Path
 from dotenv import load_dotenv
 from pymongo import MongoClient, UpdateOne
+import json 
 
 # Load the existing MongoDB connection settings
 load_dotenv()
@@ -84,6 +85,8 @@ documents = [
         "keywords": ["oil", "pressure", "lubrication", "engine"]
     }
 ]
+
+documents += json.loads((Path(__file__).parent / "knowledge_data.json").read_text(encoding="utf-8"))
 
 operations = []
 
