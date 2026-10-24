@@ -1,14 +1,18 @@
 
-import random
 import os
-from pymongo import MongoClient
-from dotenv import load_dotenv
+import random
 from pathlib import Path
 
+from dotenv import load_dotenv
+from pymongo import MongoClient
 
-# UK registration format: 2 letters, 2 digits, 3 letters
+
+# Load MongoDB credentials from .env
+env_path = Path(__file__).parent / ".env"
+load_dotenv(env_path)
+
+# Vehicle data
 LETTERS = "ABCDEFGHJKLMNOPRSTUVWXYZ"
-DIGITS = "0123456789"
 
 MAKES_AND_MODELS = {
     "Ford": ["Fiesta", "Focus", "Puma"],
@@ -19,19 +23,23 @@ MAKES_AND_MODELS = {
     "Honda": ["Civic", "Jazz", "HR-V"],
 }
 
+
 def generate_registration():
-    """Generate a UK-style fictional registration."""
+    """Generate a fictional UK-style registration."""
     area = "".join(random.choices(LETTERS, k=2))
     age = f"{random.randint(0, 99):02d}"
     suffix = "".join(random.choices(LETTERS, k=3))
+
     return f"{area}{age} {suffix}"
 
+
 def generate_vehicles(number=10):
-    """Generate fictional vehicles with unique registration numbers."""
+    """Generate fictional vehicle records."""
     vehicles = []
     registrations = set()
 
     for _ in range(number):
+        # Avoid duplicate registrations within this batch
         while True:
             registration = generate_registration()
             if registration not in registrations:
@@ -41,32 +49,43 @@ def generate_vehicles(number=10):
         make = random.choice(list(MAKES_AND_MODELS.keys()))
         model = random.choice(MAKES_AND_MODELS[make])
 
-        vehicles.append({
+        vehicle = {
             "registration_number": registration,
             "make": make,
             "model": model,
             "year": random.randint(2015, 2025),
             "mileage": random.randrange(5000, 150001, 1000),
-        })
+        }
+
+        vehicles.append(vehicle)
 
     return vehicles
 
-if __name__ == "__main__":
-    env_path = Path(__file__).parent / "main" / ".env"
-    load_dotenv(env_path)
+
+def main():
     uri = os.getenv("MONGODB_URI")
 
     if not uri:
-        raise ValueError("MONGODB_URI not found in .env")
+        print("ERROR: MONGODB_URI was not found in main/.env")
+        return
 
-    client = MongoClient(uri, serverSelectionTimeoutMS=10000)
-    db = client["simdoctor"]
-    vehicles_collection = db["vehicles"]
+    client = None
 
     try:
-        client.admin.command("ping")
-        print("Connected to MongoDB Atlas!")
+        client = MongoClient(
+            uri,
+            serverSelectionTimeoutMS=10000,
+        )
 
+        # Check the connection
+        client.admin.command("ping")
+        print("Connected successfully to MongoDB Atlas!")
+
+        # Select the database and collection
+        db = client["simdoctor"]
+        vehicles_collection = db["vehicles"]
+
+        # Generate and save vehicles
         cars = generate_vehicles(10)
         inserted = 0
 
@@ -74,25 +93,38 @@ if __name__ == "__main__":
             result = vehicles_collection.update_one(
                 {"registration_number": car["registration_number"]},
                 {"$setOnInsert": car},
-                upsert=True
+                upsert=True,
             )
 
-            if result.upserted_id:
+            if result.upserted_id is not None:
                 inserted += 1
 
-        print(f"Generated {len(cars)} cars.")
+        print(f"\nGenerated {len(cars)} vehicle records.")
         print(f"Added {inserted} new vehicles to Atlas.")
 
-        print("\nVehicles in MongoDB:")
-        for car in vehicles_collection.find(
-            {}, {"_id": 0}
-        ).sort("registration_number", 1):
-            print(car)
+        # Display vehicles currently saved in the collection
+        print("\nVehicles stored in MongoDB:")
 
-    except Exception as e:
-        print("Error:", e)
+        for car in vehicles_collection.find(
+            {},
+            {"_id": 0},
+        ).sort("registration_number", 1):
+            print(
+                f"{car['registration_number']} | "
+                f"{car['make']} {car['model']} | "
+                f"Year: {car['year']} | "
+                f"Mileage: {car['mileage']:,}"
+            )
+
+    except Exception as error:
+        print("ERROR: Could not complete the vehicle database operation.")
+        print(type(error).__name__)
+        print(error)
 
     finally:
-        client.close()
+        if client is not None:
+            client.close()
 
 
+if __name__ == "__main__":
+    main()
