@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 import os
 
-load_dotenv(Path(__file__).resolve().parent / ".env")
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 uri = os.getenv("MONGODB_URI")
 if not uri:

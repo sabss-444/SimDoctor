@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 
 # Load the .env file from the main folder
-env_path = Path(__file__).parent / ".env"
+env_path = Path(__file__).parent.parent / ".env"
 load_dotenv(env_path)
 
 uri = os.getenv("MONGODB_URI")

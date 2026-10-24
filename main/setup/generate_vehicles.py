@@ -8,7 +8,7 @@ from pymongo import MongoClient
 
 
 # Load MongoDB credentials from .env
-env_path = Path(__file__).parent / ".env"
+env_path = Path(__file__).parent.parent / ".env"
 load_dotenv(env_path)
 
 # Vehicle data
