@@ -1,0 +1,902 @@
+[
+  {
+    "topic": "brake_squeal_or_grinding",
+    "fault_code": "BRAKE_NOISE_WEAR",
+    "title": "Brakes Squealing or Grinding",
+    "symptoms": [
+      "high pitched squeal when slowing down",
+      "harsh grinding noise when pressing the brake",
+      "brakes sound like metal scraping together",
+      "intermittent squeak coming from the wheels that changes with braking"
+    ],
+    "possible_causes": [
+      "worn brake friction pads",
+      "grit or road debris caught in the brake assembly",
+      "corrosion or scoring on the brake discs"
+    ],
+    "recommended_checks": [
+      "safely bring the vehicle to a stop and avoid driving if a harsh grinding sound is present",
+      "check through the wheel spokes visually to see if brake discs have visible scoring",
+      "have the braking system thoroughly inspected by a qualified mechanic"
+    ],
+    "severity": "high",
+    "keywords": [
+      "brake squeak",
+      "grinding brakes",
+      "squealing noise stopping",
+      "scraping wheel sound",
+      "worn brakes",
+      "brake noise"
+    ]
+  },
+  {
+    "topic": "soft_spongy_brake_pedal",
+    "fault_code": "BRAKE_PEDAL_SPONGY",
+    "title": "Soft or Spongy Brake Pedal",
+    "symptoms": [
+      "brake pedal goes almost all the way to the floor",
+      "pedal feels mushy rather than firm underfoot",
+      "car takes noticeably longer to slow down when stepping on the brakes",
+      "having to pump the brake pedal to get stopping power"
+    ],
+    "possible_causes": [
+      "air trapped within the hydraulic brake lines",
+      "low brake fluid level",
+      "internal leak or failure in the brake master cylinder"
+    ],
+    "recommended_checks": [
+      "stop the vehicle safely in a secure location and discontinue driving immediately",
+      "visually check the brake fluid reservoir level under the bonnet if safe to do so",
+      "have the vehicle inspected and recovered by a qualified mechanic before driving"
+    ],
+    "severity": "high",
+    "keywords": [
+      "soft brake pedal",
+      "spongy brakes",
+      "pedal sinks to floor",
+      "mushy brake pedal",
+      "loss of brake pressure",
+      "pumping brakes"
+    ]
+  },
+  {
+    "topic": "abs_warning_light_active",
+    "fault_code": "ABS_WARNING_ILLUMINATED",
+    "title": "ABS Warning Light On",
+    "symptoms": [
+      "amber ABS icon stays illuminated on the dashboard",
+      "anti-lock braking light popped up while driving",
+      "yellow warning symbol with ABS lettering lit on the dash cluster",
+      "intermittent flash of the ABS lamp when starting the car"
+    ],
+    "possible_causes": [
+      "faulty or soiled wheel speed sensor",
+      "low brake fluid level in the reservoir",
+      "malfunction within the anti-lock brake control module"
+    ],
+    "recommended_checks": [
+      "pull over safely to confirm whether the primary red brake warning light is also illuminated",
+      "check the brake fluid reservoir level under the bonnet visually",
+      "have the anti-lock braking system scanned and inspected by a qualified mechanic"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "abs light on",
+      "anti lock brake warning",
+      "yellow abs symbol",
+      "abs dashboard light",
+      "wheel speed fault",
+      "brake assist warning"
+    ]
+  },
+  {
+    "topic": "car_pulling_when_braking",
+    "fault_code": "BRAKE_PULL_UNEVEN",
+    "title": "Car Pulling to One Side When Braking",
+    "symptoms": [
+      "car swerves towards the kerb when stepping on the brakes",
+      "steering wheel tugs to the left or right when slowing down",
+      "vehicle darts off course during firm braking",
+      "feeling a distinct sideways pull each time the brake is pressed"
+    ],
+    "possible_causes": [
+      "sticking or seized brake caliper on one side",
+      "uneven wear across the brake pads or discs",
+      "hydraulic fluid restriction or contamination affecting one wheel"
+    ],
+    "recommended_checks": [
+      "safely bring the vehicle to a stop and do not continue driving if the pull is severe",
+      "check safely from outside for excessive heat or a burning smell coming from any wheel",
+      "have the brake assemblies and suspension inspected by a qualified mechanic"
+    ],
+    "severity": "high",
+    "keywords": [
+      "car pulls when braking",
+      "uneven braking",
+      "steering pulls slowing down",
+      "car veers when stopping",
+      "brake caliper sticking",
+      "sideways brake pull"
+    ]
+  },
+  {
+    "topic": "low_uneven_tyre_pressure",
+    "fault_code": "TYRE_PRESSURE_IMBALANCE",
+    "title": "Low or Uneven Tyre Pressure",
+    "symptoms": [
+      "tyre pressure warning light illuminated on the dashboard",
+      "one tyre looks visibly flatter or bulges at the bottom",
+      "car feels heavier and slower to roll forward",
+      "faint rumbling sound coming from one of the tyres while driving"
+    ],
+    "possible_causes": [
+      "puncture caused by a nail or sharp road debris",
+      "slow leak around the valve stem or wheel rim bead",
+      "natural pressure loss due to significant ambient temperature changes"
+    ],
+    "recommended_checks": [
+      "park the vehicle safely on flat, level ground away from moving traffic",
+      "visually inspect all four tyres for obvious deflation, bulges, or embedded objects",
+      "check and adjust pressures using a tyre gauge at a nearby service station"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "low tyre pressure",
+      "flat tyre",
+      "tpms warning light",
+      "tyre deflated",
+      "tyre air leak",
+      "check tyre pressure"
+    ]
+  },
+  {
+    "topic": "steering_vibration_at_speed",
+    "fault_code": "STEERING_WHEEL_SHAKE_SPEED",
+    "title": "Steering Wheel Vibrating at Speed",
+    "symptoms": [
+      "steering wheel shakes when driving on the motorway",
+      "noticeable wobble through the steering wheel between 50 and 70 mph",
+      "hands feel a buzzing vibration through the wheel at higher speeds",
+      "front of the car feels unsettled and trembles at speed but calms down when slowing"
+    ],
+    "possible_causes": [
+      "unbalanced front road wheels",
+      "uneven tyre wear, flat spots, or tyre deformation",
+      "slightly bent wheel rim from a pothole impact"
+    ],
+    "recommended_checks": [
+      "safely reduce road speed to check if the vibration lessens",
+      "inspect front wheels visually for missing balance weights or visible tyre deformities",
+      "have the wheels balanced and alignment checked by a qualified tyre technician"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "steering wheel shaking",
+      "vibration at high speed",
+      "wheel wobble 60mph",
+      "steering tremble",
+      "unbalanced wheels",
+      "shaking steering"
+    ]
+  },
+  {
+    "topic": "car_drifting_while_driving",
+    "fault_code": "VEHICLE_DRIFT_ALIGNMENT",
+    "title": "Car Drifting or Pulling While Driving",
+    "symptoms": [
+      "car constantly wanders towards the edge of the road",
+      "having to hold the steering wheel slightly turned to go straight",
+      "car drifts to one side as soon as the wheel is released on a flat road",
+      "feeling like the car is fighting you to stay centered in the lane"
+    ],
+    "possible_causes": [
+      "misaligned wheel tracking",
+      "uneven tyre pressures across the front axle",
+      "worn suspension bushes or steering ball joints"
+    ],
+    "recommended_checks": [
+      "check that all tyres are inflated to their recommended pressures",
+      "inspect the front tyre tread visually for uneven wear on the inner or outer edges",
+      "have wheel tracking and suspension geometry inspected by a qualified technician"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "car drifting",
+      "car pulls to one side",
+      "wheel alignment off",
+      "steering off centre",
+      "car wandering",
+      "tracking problem"
+    ]
+  },
+  {
+    "topic": "heavy_steering_whine_noise",
+    "fault_code": "POWER_STEERING_ASSIST_FAULT",
+    "title": "Heavy Steering or Whining Noise When Turning",
+    "symptoms": [
+      "steering wheel feels extremely stiff and difficult to turn",
+      "loud whining or groaning sound when turning corners",
+      "struggling to turn the wheel while trying to park",
+      "steering assist feels jerky or cuts out mid-turn"
+    ],
+    "possible_causes": [
+      "low hydraulic power steering fluid level",
+      "failing power steering pump or electric assist motor",
+      "loose or slipping auxiliary drive belt"
+    ],
+    "recommended_checks": [
+      "bring the vehicle to a safe stop as compromised steering poses a serious driving hazard",
+      "visually check the power steering fluid reservoir if the vehicle uses hydraulic assist",
+      "have the steering system and drive belt inspected by a qualified mechanic"
+    ],
+    "severity": "high",
+    "keywords": [
+      "heavy steering",
+      "hard to turn wheel",
+      "power steering whining",
+      "stiff steering wheel",
+      "groaning noise turning",
+      "power steering problem"
+    ]
+  },
+  {
+    "topic": "engine_misfire_rough_idle",
+    "fault_code": "ENGINE_ROUGH_IDLE_MISFIRE",
+    "title": "Engine Misfire or Rough Idle",
+    "symptoms": [
+      "car shudders and shakes while waiting at traffic lights",
+      "engine sounds uneven and chugs when idling",
+      "car feels jerky or hesitates during light acceleration",
+      "exhaust note sounds lumpy or makes faint popping noises"
+    ],
+    "possible_causes": [
+      "worn or fouled spark plugs",
+      "failing ignition coil pack",
+      "partially clogged fuel injector or vacuum line leak"
+    ],
+    "recommended_checks": [
+      "check if the check engine light is flashing, which indicates you should pull over safely",
+      "listen carefully for irregular sputtering from the exhaust while parked safely",
+      "have the engine diagnostic codes and ignition components inspected by a qualified mechanic"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "rough idle",
+      "engine shaking at idle",
+      "car misfiring",
+      "stuttering engine",
+      "jerky idle",
+      "engine chugging"
+    ]
+  },
+  {
+    "topic": "check_engine_light_on",
+    "fault_code": "CHECK_ENGINE_LIGHT_ACTIVE",
+    "title": "Check Engine Light On",
+    "symptoms": [
+      "amber engine outline light lit up on the instrument cluster",
+      "check engine warning appeared unexpectedly while driving",
+      "yellow motor icon stays on continuously after starting",
+      "dashboard screen displays an engine management warning message"
+    ],
+    "possible_causes": [
+      "loose, damaged, or improperly fitted fuel filler cap",
+      "faulty oxygen sensor or exhaust emissions sensor",
+      "reduced efficiency in the catalytic converter system"
+    ],
+    "recommended_checks": [
+      "confirm whether the light is steady or flashing; a flashing light requires stopping safely immediately",
+      "check that the fuel cap is securely closed and fully clicked into place",
+      "have the stored computer diagnostic codes read and inspected by a qualified mechanic"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "check engine light",
+      "engine management light",
+      "amber engine icon",
+      "yellow warning light",
+      "emissions light",
+      "motor light on dash"
+    ]
+  },
+  {
+    "topic": "engine_stalling_unexpectedly",
+    "fault_code": "ENGINE_STALL_FAULT",
+    "title": "Engine Stalling",
+    "symptoms": [
+      "engine cuts out completely when slowing down to a junction",
+      "car dies without warning while waiting at lights",
+      "revs drop suddenly and the motor cuts off while driving",
+      "engine turns off just after starting up"
+    ],
+    "possible_causes": [
+      "dirty or malfunctioning idle air control or throttle body",
+      "failing crankshaft or camshaft position sensor",
+      "inadequate fuel delivery from a weak fuel pump or blocked filter"
+    ],
+    "recommended_checks": [
+      "safely guide the vehicle off the carriageway, stop safely, and turn on hazard warning lights",
+      "check the instrument panel for warning indicators such as battery or engine lights",
+      "have the fuel delivery and engine management systems inspected by a qualified mechanic"
+    ],
+    "severity": "high",
+    "keywords": [
+      "engine stalling",
+      "car cuts out",
+      "car dies at junction",
+      "engine shut off",
+      "car dying while driving",
+      "stalls at idle"
+    ]
+  },
+  {
+    "topic": "engine_loss_of_power",
+    "fault_code": "POWERTRAIN_POWER_LOSS",
+    "title": "Loss of Power or Sluggish Acceleration",
+    "symptoms": [
+      "car accelerates very slowly when putting your foot down",
+      "engine feels flat and struggles when trying to climb hills",
+      "car seems restricted in speed and will not rev freely",
+      "pedal is pressed but the vehicle barely picks up speed"
+    ],
+    "possible_causes": [
+      "clogged engine air filter or fuel filter",
+      "turbocharger boost loss or split intercooler hose",
+      "restricted exhaust flow from a blocked catalytic converter"
+    ],
+    "recommended_checks": [
+      "safely stay in the slower lane or pull over if unable to maintain normal traffic flow",
+      "check visually under the bonnet for any disconnected or split air intake hoses",
+      "have the powertrain and boost system inspected by a qualified mechanic"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "loss of power",
+      "sluggish car",
+      "no acceleration",
+      "car feels gutless",
+      "limp mode",
+      "struggles uphill"
+    ]
+  },
+  {
+    "topic": "burning_smell_from_car",
+    "fault_code": "BURNING_ODOUR_DETECTED",
+    "title": "Burning Smell from the Car",
+    "symptoms": [
+      "strong burning rubber or plastic smell inside the cabin",
+      "acrid chemical odour coming through the heating vents",
+      "oily burning smell noticeable when stepping out of the car",
+      "sharp burnt toast or clutch smell after driving up a hill"
+    ],
+    "possible_causes": [
+      "engine oil leaking onto a hot exhaust component",
+      "overheated friction material from a sticking brake caliper",
+      "slipping clutch assembly or melting electrical wire insulation"
+    ],
+    "recommended_checks": [
+      "stop the vehicle safely immediately, switch off the engine, and exit safely",
+      "inspect visually from a safe distance for any visible smoke, heat haze, or flames",
+      "have the vehicle examined and towed for inspection by a qualified mechanic"
+    ],
+    "severity": "high",
+    "keywords": [
+      "burning smell car",
+      "smell of burning oil",
+      "burning rubber smell",
+      "acrid fumes in car",
+      "burning plastic odour",
+      "burnt smell driving"
+    ]
+  },
+  {
+    "topic": "starter_clicking_no_start",
+    "fault_code": "STARTER_CLICK_NO_CRANK",
+    "title": "Car Won't Start, Only Clicking",
+    "symptoms": [
+      "rapid clicking noise when turning the ignition key",
+      "single loud click under the bonnet but the engine does not turn over",
+      "dashboard lights flicker and click when attempting to start",
+      "car makes a clicking sound but the motor will not crank at all"
+    ],
+    "possible_causes": [
+      "depleted or severely discharged starting battery",
+      "loose or corroded battery cable connections",
+      "failing starter motor solenoid contact"
+    ],
+    "recommended_checks": [
+      "check that the battery terminal clamps are tightly secured and free of white powdery corrosion",
+      "observe if the interior or dashboard lights dim severely when the starter clicks",
+      "have the battery and starter circuit inspected by a qualified breakdown technician"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "car clicking won't start",
+      "clicking noise turning key",
+      "starter motor clicking",
+      "rapid clicks starting car",
+      "won't crank just clicks",
+      "starter click"
+    ]
+  },
+  {
+    "topic": "engine_cranks_but_wont_start",
+    "fault_code": "ENGINE_CRANK_NO_FIRE",
+    "title": "Car Cranks but Won't Start",
+    "symptoms": [
+      "engine turns over normally but never actually fires up",
+      "starter spins the engine continuously without catching",
+      "car sounds like it wants to start but keeps cranking fruitlessly",
+      "engine coughs slightly while cranking but refuses to run"
+    ],
+    "possible_causes": [
+      "fuel delivery failure such as a faulty fuel pump or empty tank",
+      "ignition failure resulting in lack of electrical spark",
+      "faulty crankshaft sensor preventing the engine from timing ignition and fuel"
+    ],
+    "recommended_checks": [
+      "check the dashboard fuel gauge to ensure the fuel tank is not empty",
+      "listen for a brief faint humming sound from the fuel pump when turning the ignition to on",
+      "have the fuel, ignition, and sensor systems inspected by a qualified mechanic"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "car cranks won't start",
+      "engine turns over no fire",
+      "car won't fire up",
+      "engine spins no start",
+      "starter turns won't start",
+      "cranking but not starting"
+    ]
+  },
+  {
+    "topic": "alternator_charging_system_warning",
+    "fault_code": "CHARGING_SYSTEM_FAILURE",
+    "title": "Charging or Alternator Warning Light",
+    "symptoms": [
+      "battery symbol lit up in red on the dashboard while driving",
+      "red battery icon glowing steadily after the engine starts",
+      "warning message saying charging system failure",
+      "dashboard lights briefly flickering alongside the battery symbol"
+    ],
+    "possible_causes": [
+      "failing alternator output",
+      "broken or slipping auxiliary drive belt",
+      "internal alternator voltage regulator malfunction"
+    ],
+    "recommended_checks": [
+      "safely pull over and turn off non-essential electrical items like air conditioning or heated seats",
+      "visually inspect the engine bay for a snapped drive belt if safe to do so",
+      "have the charging system and alternator tested by a qualified mechanic"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "alternator light",
+      "battery warning light",
+      "charging system fault",
+      "red battery symbol",
+      "alternator failure",
+      "battery light driving"
+    ]
+  },
+  {
+    "topic": "dim_flickering_headlights",
+    "fault_code": "LIGHTING_VOLTAGE_IRREGULARITY",
+    "title": "Dim or Flickering Headlights",
+    "symptoms": [
+      "headlights dim noticeably when slowing down to a stop",
+      "headlights pulsating or flickering while driving at night",
+      "beams brightening visibly when stepping on the accelerator",
+      "headlights appear much dimmer than usual on the road"
+    ],
+    "possible_causes": [
+      "weakening alternator electrical supply",
+      "loose or corroded battery terminal connections",
+      "failing headlight bulbs or poor electrical earthing"
+    ],
+    "recommended_checks": [
+      "safely pull over and observe whether headlights brighten when gently raising engine revs in neutral",
+      "check battery connections visually for loose clamps or corrosion",
+      "have the electrical and charging circuit inspected by a qualified technician"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "dim headlights",
+      "flickering lights",
+      "headlights pulse",
+      "lights dim at idle",
+      "headlight electrical issue",
+      "weak headlights"
+    ]
+  },
+  {
+    "topic": "white_smoke_exhaust",
+    "fault_code": "EXHAUST_WHITE_SMOKE_COOLANT",
+    "title": "White Smoke from the Exhaust",
+    "symptoms": [
+      "thick billows of sweet-smelling white smoke from the exhaust pipe",
+      "clouds of white steam pouring from the back even after the engine is warm",
+      "dense white exhaust smoke that lingers in the air behind the car",
+      "white smoke coming from the tailpipe alongside an engine temperature rise"
+    ],
+    "possible_causes": [
+      "blown cylinder head gasket allowing coolant into combustion chambers",
+      "cracked engine block or cylinder head",
+      "internal engine coolant leakage"
+    ],
+    "recommended_checks": [
+      "safely stop the vehicle and turn off the engine to prevent severe overheating or engine damage",
+      "check the coolant expansion tank level visually once the engine is completely cold",
+      "have the engine tested and inspected by a qualified mechanic"
+    ],
+    "severity": "high",
+    "keywords": [
+      "white exhaust smoke",
+      "white smoke tailpipe",
+      "thick white smoke",
+      "head gasket smoke",
+      "coolant burning exhaust",
+      "steam from exhaust"
+    ]
+  },
+  {
+    "topic": "blue_smoke_exhaust",
+    "fault_code": "EXHAUST_BLUE_SMOKE_OIL",
+    "title": "Blue Smoke from the Exhaust",
+    "symptoms": [
+      "bluish-grey smoke puffing from the tailpipe when pulling away",
+      "cloud of blue smoke on startup after the car has been parked",
+      "continuous blue haze trailing behind the car while accelerating",
+      "noticeable burnt oil smell coming from the exhaust"
+    ],
+    "possible_causes": [
+      "worn valve stem oil seals",
+      "worn or sticking piston rings",
+      "leaking internal turbocharger oil seals"
+    ],
+    "recommended_checks": [
+      "check the engine oil level with the dipstick on level ground when the engine is cold",
+      "monitor oil consumption closely to ensure the oil level does not drop dangerously low",
+      "have the engine and turbocharger inspected by a qualified mechanic"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "blue exhaust smoke",
+      "blue smoke tailpipe",
+      "burning oil exhaust",
+      "blue smoke acceleration",
+      "oil smoke from exhaust",
+      "blue smoke startup"
+    ]
+  },
+  {
+    "topic": "black_smoke_exhaust",
+    "fault_code": "EXHAUST_BLACK_SMOKE_FUEL",
+    "title": "Black Smoke from the Exhaust",
+    "symptoms": [
+      "dark black soot and smoke billowing from the exhaust under load",
+      "black exhaust clouds when stepping hard on the accelerator",
+      "soot accumulating around the rear bumper and tailpipe",
+      "dark smoke from the back accompanied by a strong petrol or diesel smell"
+    ],
+    "possible_causes": [
+      "severely clogged engine air filter",
+      "leaking or stuck-open fuel injector",
+      "faulty mass airflow sensor causing an over-rich fuel mixture"
+    ],
+    "recommended_checks": [
+      "visually check the engine air filter housing for heavy contamination or blockages",
+      "check for any warning lights such as the check engine light on the dashboard",
+      "have the fuel injection and air intake systems inspected by a qualified mechanic"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "black exhaust smoke",
+      "black smoke tailpipe",
+      "soot from exhaust",
+      "black smoke accelerating",
+      "rich fuel mixture smoke",
+      "dark exhaust smoke"
+    ]
+  },
+  {
+    "topic": "coolant_leak_sweet_odour",
+    "fault_code": "COOLANT_SYSTEM_LEAKAGE",
+    "title": "Coolant Leak or Sweet Smell",
+    "symptoms": [
+      "puddle of bright pink, blue, or green liquid under the front of the car",
+      "sweet syrupy smell inside the car when using the heater",
+      "sweet sugary odour coming from under the bonnet after a drive",
+      "coolant reservoir level dropping noticeably over a few days"
+    ],
+    "possible_causes": [
+      "leaking radiator or degraded coolant hose",
+      "failing water pump seal",
+      "leaking heater matrix inside the dashboard assembly"
+    ],
+    "recommended_checks": [
+      "safely stop the car and shut off the engine if temperature begins to climb to avoid severe overheating",
+      "visually inspect underneath the front of the vehicle for drips or coloured coolant pooling",
+      "have the cooling system pressure-tested and inspected by a qualified mechanic"
+    ],
+    "severity": "high",
+    "keywords": [
+      "coolant leak",
+      "sweet smell in car",
+      "antifreeze leak",
+      "green puddle under car",
+      "pink fluid under car",
+      "coolant loss"
+    ]
+  },
+  {
+    "topic": "oil_leak_underbody",
+    "fault_code": "ENGINE_OIL_LEAK_DETECTED",
+    "title": "Oil Leak Under the Car",
+    "symptoms": [
+      "dark brown or black slippery puddle on the driveway",
+      "fresh wet oil drips on the ground where the car was parked",
+      "oily film and grime covering the underside of the engine",
+      "oil level on the dipstick dropping steadily between drives"
+    ],
+    "possible_causes": [
+      "deteriorated engine sump plug washer or loose drain bolt",
+      "worn valve cover gasket or oil pan gasket",
+      "failing crankshaft or camshaft oil seal"
+    ],
+    "recommended_checks": [
+      "safely stop the vehicle and do not drive if the oil level drops below minimum to avoid loss of oil pressure",
+      "check the engine oil dipstick level safely when parked on flat ground",
+      "have the source of the oil leak inspected and repaired by a qualified mechanic"
+    ],
+    "severity": "high",
+    "keywords": [
+      "oil leak under car",
+      "black puddle driveway",
+      "engine dripping oil",
+      "oil puddle under engine",
+      "oil dripping",
+      "leaking engine oil"
+    ]
+  },
+  {
+    "topic": "fuel_vapour_smell",
+    "fault_code": "FUEL_SYSTEM_LEAK_SMELL",
+    "title": "Smell of Fuel",
+    "symptoms": [
+      "strong raw petrol or diesel odour inside the car cabin",
+      "persistent smell of raw fuel when walking up to the car",
+      "strong fuel fumes coming through the ventilation vents while idling",
+      "smell of unburnt fuel lingering around the vehicle after parking"
+    ],
+    "possible_causes": [
+      "leaking fuel line, hose, or fitting",
+      "loose, cracked, or missing fuel filler cap or neck seal",
+      "leaking fuel injector seal or fuel rail connection"
+    ],
+    "recommended_checks": [
+      "safely stop the vehicle in an open, well-ventilated area, turn off the engine immediately, and do not smoke",
+      "check visually under the vehicle for dripping liquid fuel without using open flames or sparks",
+      "have the fuel system thoroughly inspected by a qualified mechanic before driving again"
+    ],
+    "severity": "high",
+    "keywords": [
+      "fuel smell",
+      "smell of petrol in car",
+      "diesel smell",
+      "petrol fumes",
+      "fuel leak smell",
+      "raw petrol odour"
+    ]
+  },
+  {
+    "topic": "automatic_transmission_jerk_slip",
+    "fault_code": "TRANSMISSION_SLIP_HARSH_SHIFT",
+    "title": "Automatic Gearbox Jerking or Slipping",
+    "symptoms": [
+      "harsh clunk or jolt when the car shifts gears",
+      "engine revs jump up before the transmission engages",
+      "gearbox hesitates or delays before changing gear",
+      "car feels like it slips out of gear momentarily when accelerating"
+    ],
+    "possible_causes": [
+      "low or degraded transmission fluid",
+      "worn internal transmission friction clutches",
+      "faulty transmission shift solenoid or valve body"
+    ],
+    "recommended_checks": [
+      "check the transmission fluid level using the dipstick if the vehicle provides one",
+      "visually inspect underneath the gearbox area for reddish or dark transmission fluid leaks",
+      "have the automatic transmission diagnosed and inspected by a qualified mechanic"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "gearbox slipping",
+      "transmission jerking",
+      "harsh gear shift",
+      "car jolts shifting",
+      "automatic gearbox delay",
+      "revs flare between gears"
+    ]
+  },
+  {
+    "topic": "manual_clutch_slip_stiffness",
+    "fault_code": "CLUTCH_FRICTION_MECHANISM_FAULT",
+    "title": "Clutch Slipping or Hard to Press",
+    "symptoms": [
+      "engine revs rise when pressing the gas but the car barely accelerates",
+      "clutch pedal feels unusually heavy and stiff to push down",
+      "clutch bites right at the very top of the pedal travel",
+      "burning friction smell when pulling away on a hill"
+    ],
+    "possible_causes": [
+      "worn clutch friction plate",
+      "failing clutch pressure plate or release bearing",
+      "binding clutch master or slave hydraulic cylinder"
+    ],
+    "recommended_checks": [
+      "safely pull over if the clutch fails to engage or disengage properly",
+      "check clutch hydraulic fluid level in the reservoir under the bonnet if fitted",
+      "have the clutch assembly and hydraulic linkage inspected by a qualified mechanic"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "clutch slipping",
+      "stiff clutch pedal",
+      "heavy clutch",
+      "clutch high bite",
+      "engine revs car slow",
+      "clutch burning smell"
+    ]
+  },
+  {
+    "topic": "engine_accessory_belt_squeal",
+    "fault_code": "DRIVE_BELT_SLIP_NOISE",
+    "title": "Squealing Noise from the Engine Belt",
+    "symptoms": [
+      "piercing screech from under the bonnet on cold morning startups",
+      "loud squeal that worsens when turning the steering wheel or switching on AC",
+      "shrill squeaking noise that speeds up with engine revs",
+      "intermittent loud squeak coming from the front of the engine"
+    ],
+    "possible_causes": [
+      "worn, glazed, or cracked serpentine drive belt",
+      "slack belt tension caused by a weak automatic tensioner",
+      "misaligned or seizing accessory pulley bearing"
+    ],
+    "recommended_checks": [
+      "visually inspect the accessory drive belt for visible fraying, cracks, or glazing when the engine is off",
+      "listen to identify whether the noise increases when switching on electrical loads or air conditioning",
+      "have the belt tension and drive pulleys inspected by a qualified mechanic"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "engine belt squeal",
+      "screeching under bonnet",
+      "fan belt squeak",
+      "serpentine belt noise",
+      "squeal on startup",
+      "alternator belt sound"
+    ]
+  },
+  {
+    "topic": "suspension_knock_over_bumps",
+    "fault_code": "SUSPENSION_BUMP_KNOCK",
+    "title": "Knocking Noise Over Bumps",
+    "symptoms": [
+      "dull thud or clunking noise when driving over speed bumps",
+      "rattling or knocking from the wheel arch on rough roads",
+      "hollow metallic knock when going over potholes",
+      "clunk sound from underneath when driving over uneven road surfaces"
+    ],
+    "possible_causes": [
+      "worn suspension anti-roll bar drop links or bushes",
+      "worn lower ball joint or control arm bush",
+      "failing shock absorber strut or top mount bearing"
+    ],
+    "recommended_checks": [
+      "safely reduce speed over uneven road surfaces to minimise vehicle instability",
+      "visually inspect wheel arches and suspension springs for cracks or loose hardware if visible",
+      "have the suspension and steering joints inspected by a qualified technician"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "knocking over bumps",
+      "suspension clunk",
+      "clunking over potholes",
+      "rattle rough road",
+      "front suspension noise",
+      "thud over speed bump"
+    ]
+  },
+  {
+    "topic": "wheel_bearing_hum_roar",
+    "fault_code": "WHEEL_BEARING_NOISE",
+    "title": "Humming or Roaring from a Wheel",
+    "symptoms": [
+      "deep humming or droning sound that gets louder the faster you drive",
+      "roaring noise like an aeroplane taking off coming from one side",
+      "wheel noise that changes tone or pitch when gently swerving or cornering",
+      "grumbling vibration felt through the car floor at motorway speeds"
+    ],
+    "possible_causes": [
+      "worn or failing wheel hub bearing",
+      "severely uneven or cupped tyre tread wear",
+      "debris caught between the brake dust shield and the wheel assembly"
+    ],
+    "recommended_checks": [
+      "pay attention to whether the humming noise shifts louder when turning gently left or right",
+      "visually inspect tyre tread for uneven scallop-shaped wear patterns",
+      "have the wheel bearings and hub assemblies inspected by a qualified mechanic"
+    ],
+    "severity": "medium",
+    "keywords": [
+      "wheel humming noise",
+      "roaring sound from wheel",
+      "wheel bearing drone",
+      "droning noise at speed",
+      "loud hum driving",
+      "grumbling wheel noise"
+    ]
+  },
+  {
+    "topic": "poor_fuel_economy_consumption",
+    "fault_code": "EXCESSIVE_FUEL_CONSUMPTION",
+    "title": "Poor Fuel Economy",
+    "symptoms": [
+      "car using significantly more petrol or diesel than normal",
+      "fuel gauge dropping much faster on everyday journeys",
+      "trip computer reporting a noticeable drop in miles per gallon",
+      "having to fill up the fuel tank much more frequently"
+    ],
+    "possible_causes": [
+      "under-inflated tyres causing higher rolling resistance",
+      "faulty engine coolant temperature sensor or oxygen sensor",
+      "clogged air filter or binding brake caliper causing drag"
+    ],
+    "recommended_checks": [
+      "check that all four tyres are inflated to their recommended pressures",
+      "check if any wheel rim feels unusually warm after driving, which could indicate brake drag",
+      "have the engine management and emissions sensors scanned by a qualified mechanic"
+    ],
+    "severity": "low",
+    "keywords": [
+      "poor fuel economy",
+      "high fuel consumption",
+      "car drinking fuel",
+      "low mpg",
+      "bad petrol mileage",
+      "fuel gauge drops fast"
+    ]
+  },
+  {
+    "topic": "air_conditioning_not_cooling",
+    "fault_code": "HVAC_COOLING_INSUFFICIENT",
+    "title": "Air Conditioning Not Blowing Cold",
+    "symptoms": [
+      "air from the dashboard vents stays lukewarm when AC is switched on",
+      "air conditioning blows warm air even on the coldest temperature setting",
+      "faint hissing sound behind the dashboard when activating air con",
+      "cabin takes a very long time to cool down on a warm day"
+    ],
+    "possible_causes": [
+      "low refrigerant gas level caused by a minor system leak",
+      "failing air conditioning compressor or clutch not engaging",
+      "clogged cabin pollen filter or blocked air con condenser"
+    ],
+    "recommended_checks": [
+      "check that the cabin pollen filter is not clogged with leaves or dust",
+      "visually check the front AC condenser through the front grille for bent fins or road debris",
+      "have the refrigerant pressure and air conditioning system inspected by a qualified technician"
+    ],
+    "severity": "low",
+    "keywords": [
+      "air con not cold",
+      "ac blowing warm air",
+      "air conditioning weak",
+      "car ac not cooling",
+      "warm air from vents",
+      "ac gas low"
+    ]
+  }
+]
