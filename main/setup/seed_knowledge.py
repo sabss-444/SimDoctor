@@ -26,6 +26,9 @@ documents = [
         "symptoms": [
             "Engine temperature above the configured threshold",
             "Temperature continuing to rise"
+            "steam coming from under the bonnet",
+            "temperature gauge in the red or climbing high",
+            "engine feels very hot there is hot smell"
         ],
         "possible_causes": [
             "Low coolant level",
@@ -40,7 +43,7 @@ documents = [
             "Verify the temperature sensor reading"
         ],
         "severity": "high",
-        "keywords": ["overheating", "hot engine", "coolant", "temperature"]
+        "keywords": ["overheating", "hot engine", "coolant", "temperature", "steam", "engine too hot", "gauge in the red", "car running hot"]
     },
     {
         "topic": "low_battery_voltage",
@@ -48,7 +51,10 @@ documents = [
         "title": "Low battery voltage",
         "symptoms": [
             "Battery voltage below the configured threshold",
-            "Possible difficulty starting or electrical issues"
+            "Possible difficulty starting or electrical issues",
+            "car struggling or slow to start",
+            "headlights and dashboard look dim",
+            "battery warning light on"
         ],
         "possible_causes": [
             "Discharged or worn battery",
@@ -61,14 +67,17 @@ documents = [
             "Check the charging system"
         ],
         "severity": "medium",
-        "keywords": ["battery", "low voltage", "charging", "electrical"]
+        "keywords": ["battery", "low voltage", "charging", "electrical", "dead battery", "slow to start", "battery light", "flat battery"]
     },
     {
         "topic": "low_oil_pressure",
         "fault_code": "LOW_OIL_PRESSURE",
         "title": "Low oil pressure",
         "symptoms": [
-            "Oil pressure below the configured threshold"
+            "Oil pressure below the configured threshold",
+            "red oil can warning light on the dashboard",
+            "ticking or knocking noise from the engine",
+            "oil warning light flickering"
         ],
         "possible_causes": [
             "Low engine oil level",
@@ -82,7 +91,7 @@ documents = [
             "Investigate the lubrication system and sensor"
         ],
         "severity": "high",
-        "keywords": ["oil", "pressure", "lubrication", "engine"]
+        "keywords": ["oil", "pressure", "lubrication", "engine", "oil light", "engine knocking", "oil can warning", "low oil pressure"]
     }
 ]
 
