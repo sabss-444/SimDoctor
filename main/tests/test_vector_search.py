@@ -16,7 +16,7 @@ try:
     db = client["simdoctor"]
     knowledge = db["diagnostic_knowledge"]
 
-    question = "My engine is getting too hot. What could be wrong?"
+    question = "squealing noise when i brake"
 
     pipeline = [
         {
