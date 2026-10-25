@@ -125,14 +125,6 @@ python -m streamlit run app.py
 
 Try a quick terminal check: `python search_modes.py "steam coming from under my bonnet"`
 
-## Demo script (3 minutes)
-
-1. Start an **Overheating** drive and watch readings stream in and save to Atlas.
-2. The dashboard flips red. Type *"smells hot after sitting in traffic"* and press **Investigate**.
-3. Open the evidence panel and show vector vs lexical vs hybrid results, then the reasoning trail.
-4. Try a symptom with no sensor fault ("squealing when I brake") to show semantic search finding it.
-5. Save the report and open the **Reports** page. Show the collections in Atlas.
-
 ## Tech stack
 
 Python · Streamlit · MongoDB Atlas (Vector Search, Atlas Search, Automated Embedding, `$rankFusion`, `$rerank`) · Voyage AI · Google Gemini · PyMongo · pandas
