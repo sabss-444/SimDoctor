@@ -25,6 +25,7 @@ from dotenv import load_dotenv
 from pymongo import MongoClient
 
 from fault_detector import RULES, describe, detect_faults, save_fault
+from search_modes import compare
 
 load_dotenv(Path(__file__).parent / ".env")
 
@@ -281,7 +282,7 @@ SCENARIOS = {
 
 DRIVE_TICKS = 14      # readings per drive
 TICK_SECONDS = 0.6    # delay between readings (14 x 0.6s is roughly 8 seconds)
-MIN_SCORE = 0.70      # minimum Atlas vector score for a record that is not matched by fault code (tune this)
+MIN_SCORE = 0.77      # minimum Atlas vector score for a record that is not matched by fault code (tune this)
 
 SENSORS = [
     {"field": "temperature", "label": "ENGINE TEMP", "unit": "°C", "icon": "🌡️", "fmt": "{:.0f}", "lo": 60, "hi": 130},
@@ -530,6 +531,20 @@ def fault_phrase(faults):
     return " ".join(f"{f['message']}: {f['field'].replace('_', ' ')} is {f['value']} {f['unit']}, "
                     f"{'above' if f['operator'] == '>' else 'below'} the expected limit." for f in faults)
 
+@st.cache_resource
+def _search_cache():
+    return {}
+
+
+def cached_compare(query):
+    key = query.strip().lower()
+    cache = _search_cache()
+    if key in cache:
+        return cache[key]
+    res = compare(DB, query)
+    if not any(r["error"] for r in res.values()):
+        cache[key] = res
+    return res
 
 def get_knowledge(faults, text, k=3):
     """Returns (records, method). Fault-code match first, then vector search, then keywords."""
@@ -544,15 +559,18 @@ def get_knowledge(faults, text, k=3):
     if docs:
         methods.append("fault-code lookup")
 
-    if DB is not None and query:
-        have = {d.get("fault_code") for d in docs}
-        for hit in retrieve_knowledge(DB, query, limit=k):
-            if hit.get("fault_code") not in have and hit.get("score", 0) >= MIN_SCORE:
-                docs.append(hit)
-                have.add(hit.get("fault_code"))
-                if "Atlas Vector Search" not in methods:
-                    methods.insert(0, "Atlas Vector Search")
-
+        if DB is not None and (text or query):
+            res = cached_compare(text or query)
+            have = {d.get("fault_code") for d in docs}
+            strong = {d.get("fault_code") for d in res["vector"]["docs"] if d.get("score", 0) >= MIN_SCORE}
+            for hit in res["hybrid"]["docs"]:
+                code = hit.get("fault_code")
+                if code in strong and code not in have:
+                    docs.append(hit)
+                    have.add(code)
+                    if res["hybrid"]["method"] not in methods:
+                        methods.insert(0, res["hybrid"]["method"])
+    
     if not docs and query:
         docs = keyword_match(query, k)
         if docs:
@@ -1043,12 +1061,22 @@ def page_dashboard(vehicles):
         st.markdown('<div class="sub">DIAGNOSTIC KNOWLEDGE RETRIEVED</div>', unsafe_allow_html=True)
         known = []
         for h in extras["hits"]:
-            score = f" · similarity {h['score']:.2f}" if isinstance(h.get("score"), float) else ""
+                        score = f" · score {h['score']:.3f}" if isinstance(h.get("score"), float) else ""
             known.append(f"{h.get('title')}{score}")
         st.markdown(li_list(known, "Nothing retrieved."), unsafe_allow_html=True)
         st.markdown(f'<div class="note">Retrieval method: {esc(extras["method"])}</div>', unsafe_allow_html=True)
-        st.markdown('<div class="sub">WHY THE AI REACHED THIS CONCLUSION</div>', unsafe_allow_html=True)
-        st.markdown('<ol class="trail">' + "".join(f"<li>{s}</li>" for s in reasoning_trail(report, extras))
+    if DB is not None and report.get("symptom"):
+            st.markdown('<div class="sub">SEARCH MODES COMPARED (MONGODB ATLAS)</div>', unsafe_allow_html=True)
+            results = cached_compare(report["symptom"])
+            for col, mode in zip(st.columns(3), ["vector", "lexical", "hybrid"]):
+                r = results[mode]
+                col.markdown(f"**{mode.upper()}** · {r['ms']} ms")
+                col.caption(r["method"] if not r["error"] else "search unavailable (rate limit?)")
+                for d in r["docs"]:
+                    col.write(f"{d.get('title')} · {d.get('score', 0):.3f}")
+            st.markdown('<div class="note">Hybrid scores are rank-fusion values, not similarities.</div>', unsafe_allow_html=True)
+            st.markdown('<div class="sub">WHY THE AI REACHED THIS CONCLUSION</div>', unsafe_allow_html=True)
+            st.markdown('<ol class="trail">' + "".join(f"<li>{s}</li>" for s in reasoning_trail(report, extras))
                     + "</ol>", unsafe_allow_html=True)
 
     b1, b2, _ = st.columns([1, 1, 2])
