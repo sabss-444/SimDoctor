@@ -355,14 +355,19 @@ for _name, _default in {"demo_readings": {}, "demo_reports": [], "reports": {}, 
 # Data layer (Atlas with demo fallback)
 # ──────────────────────────────────────────────────────────────
 @st.cache_resource(show_spinner=False)
+def _connect(uri):
+    """Cached only on success: an exception is not cached, so a failed connection is retried on the next rerun."""
+    client = MongoClient(uri, serverSelectionTimeoutMS=3000)
+    client.admin.command("ping")
+    return client["simdoctor"]
+
+
 def get_db():
     uri = os.getenv("MONGODB_URI")
     if not uri:
         return None
     try:
-        client = MongoClient(uri, serverSelectionTimeoutMS=5000)
-        client.admin.command("ping")
-        return client["simdoctor"]
+        return _connect(uri)
     except Exception:
         return None
 
@@ -531,6 +536,7 @@ def fault_phrase(faults):
     return " ".join(f"{f['message']}: {f['field'].replace('_', ' ')} is {f['value']} {f['unit']}, "
                     f"{'above' if f['operator'] == '>' else 'below'} the expected limit." for f in faults)
 
+
 @st.cache_resource
 def _search_cache():
     return {}
@@ -546,6 +552,7 @@ def cached_compare(query):
         cache[key] = res
     return res
 
+
 def get_knowledge(faults, text, k=3):
     """Returns (records, method). Fault-code match first, then vector search, then keywords."""
     text = (text or "").strip()
@@ -559,18 +566,18 @@ def get_knowledge(faults, text, k=3):
     if docs:
         methods.append("fault-code lookup")
 
-        if DB is not None and (text or query):
-            res = cached_compare(text or query)
-            have = {d.get("fault_code") for d in docs}
-            strong = {d.get("fault_code") for d in res["vector"]["docs"] if d.get("score", 0) >= MIN_SCORE}
-            for hit in res["hybrid"]["docs"]:
-                code = hit.get("fault_code")
-                if code in strong and code not in have:
-                    docs.append(hit)
-                    have.add(code)
-                    if res["hybrid"]["method"] not in methods:
-                        methods.insert(0, res["hybrid"]["method"])
-    
+    if DB is not None and (text or query):
+        res = cached_compare(text or query)
+        have = {d.get("fault_code") for d in docs}
+        strong = {d.get("fault_code") for d in res["vector"]["docs"] if d.get("score", 0) >= MIN_SCORE}
+        for hit in res["hybrid"]["docs"]:
+            code = hit.get("fault_code")
+            if code in strong and code not in have:
+                docs.append(hit)
+                have.add(code)
+                if res["hybrid"]["method"] not in methods:
+                    methods.insert(0, res["hybrid"]["method"])
+
     if not docs and query:
         docs = keyword_match(query, k)
         if docs:
@@ -1061,11 +1068,11 @@ def page_dashboard(vehicles):
         st.markdown('<div class="sub">DIAGNOSTIC KNOWLEDGE RETRIEVED</div>', unsafe_allow_html=True)
         known = []
         for h in extras["hits"]:
-                        score = f" · score {h['score']:.3f}" if isinstance(h.get("score"), float) else ""
+            score = f" · score {h['score']:.3f}" if isinstance(h.get("score"), float) else ""
             known.append(f"{h.get('title')}{score}")
         st.markdown(li_list(known, "Nothing retrieved."), unsafe_allow_html=True)
         st.markdown(f'<div class="note">Retrieval method: {esc(extras["method"])}</div>', unsafe_allow_html=True)
-    if DB is not None and report.get("symptom"):
+        if DB is not None and report.get("symptom"):
             st.markdown('<div class="sub">SEARCH MODES COMPARED (MONGODB ATLAS)</div>', unsafe_allow_html=True)
             results = cached_compare(report["symptom"])
             for col, mode in zip(st.columns(3), ["vector", "lexical", "hybrid"]):
@@ -1075,8 +1082,8 @@ def page_dashboard(vehicles):
                 for d in r["docs"]:
                     col.write(f"{d.get('title')} · {d.get('score', 0):.3f}")
             st.markdown('<div class="note">Hybrid scores are rank-fusion values, not similarities.</div>', unsafe_allow_html=True)
-            st.markdown('<div class="sub">WHY THE AI REACHED THIS CONCLUSION</div>', unsafe_allow_html=True)
-            st.markdown('<ol class="trail">' + "".join(f"<li>{s}</li>" for s in reasoning_trail(report, extras))
+        st.markdown('<div class="sub">WHY THE AI REACHED THIS CONCLUSION</div>', unsafe_allow_html=True)
+        st.markdown('<ol class="trail">' + "".join(f"<li>{s}</li>" for s in reasoning_trail(report, extras))
                     + "</ol>", unsafe_allow_html=True)
 
     b1, b2, _ = st.columns([1, 1, 2])
@@ -1212,3 +1219,4 @@ elif page == "HISTORY":
     page_history(all_vehicles)
 else:
     page_reports(all_vehicles)
+    
