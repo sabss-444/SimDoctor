@@ -81,8 +81,15 @@ def rerank_pipeline(query, limit=5, model="rerank-2.5"):
 
 
 # ---------------------------------------------------------------- helpers
-def _run(db, pipeline):
-    return list(db[COLLECTION].aggregate(pipeline))
+def _run(db, pipeline, retries=2):
+    for attempt in range(retries + 1):
+        try:
+            return list(db[COLLECTION].aggregate(pipeline))
+        except Exception as e:
+            if "rate limit" in str(e).lower() and attempt < retries:
+                time.sleep(2 * (attempt + 1))
+                continue
+            raise
 
 
 def rrf_merge(*ranked_lists, limit=5, k=RRF_K):
@@ -134,7 +141,6 @@ def compare(db, query, limit=3):
         "vector": lambda: (vector_search(db, query, limit), "Atlas Vector Search"),
         "lexical": lambda: (lexical_search(db, query, limit), "Atlas Search"),
         "hybrid": lambda: hybrid_search(db, query, limit),
-        "rerank": lambda: rerank_search(db, query, limit),
     }
     for mode, run in runners.items():
         start = time.perf_counter()
@@ -164,4 +170,3 @@ if __name__ == "__main__":  # quick manual test:  python search_modes.py "steam 
         for d in r["docs"]:
             print(f"   {d.get('score')!s:>10}  {d.get('title')}")
 
-            

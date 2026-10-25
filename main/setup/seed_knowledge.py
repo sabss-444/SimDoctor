@@ -25,10 +25,10 @@ documents = [
         "title": "Engine overheating",
         "symptoms": [
             "Engine temperature above the configured threshold",
-            "Temperature continuing to rise"
+            "Temperature continuing to rise",
             "steam coming from under the bonnet",
             "temperature gauge in the red or climbing high",
-            "engine feels very hot there is hot smell"
+            "engine feels very hot and there is hot smell"
         ],
         "possible_causes": [
             "Low coolant level",
