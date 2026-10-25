@@ -1,4 +1,4 @@
-SimDoctor 
+# SimDoctor 
 
 An AI vehicle doctor. It watches a live sensor feed, catches the fault, and explains what 
 to check, with every answer grounded in MongoDB Atlas.
@@ -13,7 +13,7 @@ A warning light comes on and most drivers have no idea what it means, how seriou
 it is safe to keep driving. Diagnostic tools give you a code. They don't give you a plain-English answer
 you can trust!!
 
-What SimDoctor does 
+## What SimDoctor does 
 1. Streams a live drive.Sensor readings(engine temperature, battery voltage, oil pressure, speed, RPM) arrive one at a time and are written to Atlas as they arrive.
 2. Catches faults in real time. A rule-based doctor flags readings that cross a limit, and the dashboard flips green to red
 3. Investigates. The driver describes what they notice. SimDoctor retrieves the most relevant diagnostic knowledge from Atlas and asks Gemini to reason over the evidence.
