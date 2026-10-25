@@ -131,10 +131,10 @@ Python · Streamlit · MongoDB Atlas (Vector Search, Atlas Search, Automated Emb
 
 ## Limitations and roadmap
 
-- Sensor data is simulated, and the detector uses three fixed thresholds. Real OBD-II data and per-vehicle limits are the obvious next step.
-- The knowledge base is a small curated set and should be reviewed by a qualified mechanic before real use.
+- Sensor data is simulated, and the detector uses three fixed thresholds (engine temperature, battery voltage, oil pressure). Real OBD-II data and per-vehicle limits are the obvious next step.
+- The knowledge base is a small curated set. We sense-checked it with a working mechanic, but it has not had a formal professional review, and SimDoctor is not a subtitle for a real inspection.
 - Next: Atlas Stream Processing for continuous windowed anomaly detection, rerank surfaced in the UI, per-vehicle history in retrieval, and a proper test suite.
 
 ## Team
 
-Built at Encode London 2026 by *&lt;your names here&gt;*.
+Built at Encode London 2026 by *&lt; Sabrina Hassan & Hafza Salad &gt;*.
