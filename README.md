@@ -1,4 +1,4 @@
-# 🚗 SimDoctor
+# SimDoctor
 
 **An AI vehicle doctor that watches a live sensor feed, catches the fault, and explains what to check, with every answer grounded in MongoDB Atlas.**
 
