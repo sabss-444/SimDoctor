@@ -20,5 +20,6 @@ you can trust!!
 4. Produces a report. Possible causes, urgency,safety warning,recommended checks and a confidence statement. Causes are always presented as hypotheses to verify never a confirmed diagnosis.
 5. Answers questions. A chat assistant is grounded in the vehicle's live readings and the knowledge base, and cities which records it used.
 
+# ⚠️DISCLAIMER⚠️
 No real car is connected. SimDoctor simulates the drive, and all faults limits are simulation thresholds, not manufacture specification =( 
 
