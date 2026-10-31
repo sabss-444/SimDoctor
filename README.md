@@ -9,6 +9,9 @@ Built at Encode London 2026 for the *MongoDB Atlas: Build Anything, Change Every
 
 > ⚠️ **Disclaimer:** No real car is connected. SimDoctor simulates the drive, and all fault limits are simulation thresholds, not manufacturer specifications. Output is a list of hypotheses to verify, never a confirmed diagnosis.
 
+
+https://youtu.be/tP1JDyJr0dE?is=J_mRhk0YcnRItey-
+^ link to demo _the demo did have a bit of issues but every feature works perfectly_
 ---
 
 ## The problem
